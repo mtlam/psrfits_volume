@@ -18,10 +18,11 @@ class CustomFormatter(argparse.ArgumentDefaultsHelpFormatter, argparse.RawDescri
 parser = argparse.ArgumentParser(
     formatter_class=CustomFormatter,
     prog='python psrfits_volume.py',
-    description='''Calculate the data volume of a PSRFITS file''')
+    description='''Calculate the data volume of a PSRFITS file''',
+    add_help=False)
 
 group0 = parser.add_argument_group('Printing options')
-
+group0.add_argument("-h", "--help", action="help", help="show this help message and exit")
 group0.add_argument("-q", "--quiet", action="store_true", help='Quiet printing')
 
 group1 = parser.add_argument_group('Dimension size parameters',

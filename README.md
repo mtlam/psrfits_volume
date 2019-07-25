@@ -39,10 +39,8 @@ usage: python psrfits_volume.py [-h] [-q] [--nsubint NSUBINT] [--npol NPOL]
 
 Calculate the data volume of a PSRFITS file
 
-optional arguments:
-  -h, --help         show this help message and exit
-
 Printing options:
+  -h, --help         show this help message and exit
   -q, --quiet        Quiet printing (default: False)
 
 Dimension size parameters:
