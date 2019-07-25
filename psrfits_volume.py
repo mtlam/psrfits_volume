@@ -110,6 +110,8 @@ elif total >= 1e9:
 elif total >= 1e6: 
     print("%0.2f MB"%(total / 1e6))
 elif total >= 1e3:
+    if total < 1e5 and not args.quiet:
+        print("Warning: header size becomes important at these sizes")
     print("%0.2f KB"%(total / 1e3))
 
 if not args.quiet: 
