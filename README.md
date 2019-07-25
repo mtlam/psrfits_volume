@@ -1,6 +1,31 @@
-## psrfits_volume
+## psrfits_volume.py
 
 A small command-line script to calculate the data volume of a PSRFITS file.
+
+
+#### Example usage:
+
+```shell
+user@computer: python psrfits_volume.py
+
+(nsubint, npol, nchan, nbin) = (1800, 4, 512, 2048)
+15.13 GB
+
+user@computer: python psrfits_volume.py --tobs 3600 
+
+Setting N_subint = 3600.0 s / 1.0 s = 3600
+(nsubint, npol, nchan, nbin) = (3600, 4, 512, 2048)
+30.27 GB
+
+user@computer: python psrfits_volume.py --tobs 3600 --bw 800.0 --powertwo
+
+Setting N_subint = 3600.0 s / 1.0 s = 3600
+Setting N_chan = 800.0 MHz / 2.0 MHz -> 256 (nearest power)
+(nsubint, npol, nchan, nbin) = (3600, 4, 256, 2048)
+15.13 GB
+```
+
+#### Help:
 
 ~~~~
 usage: python psrfits_volume.py [-h] [-q] [--nsubint NSUBINT] [--npol NPOL]
