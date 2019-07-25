@@ -67,7 +67,7 @@ if not args.quiet:
 if args.tobs != DEFAULT_TOBS or args.tsubint != DEFAULT_TSUBINT:
     nsubint = floor(args.tobs/args.tsubint)
     if not args.quiet:
-        print("Setting N_subint = %0.1f s / %0.1f s = %i"%(args.tobs, args.tsubint, nsubint))
+        print("Setting nsubint = %0.1f s / %0.1f s = %i"%(args.tobs, args.tsubint, nsubint))
 mode = 0
 if args.bw != DEFAULT_BW or args.chanbw != DEFAULT_CHANBW:
     nchan = floor(args.bw/args.chanbw)
@@ -85,13 +85,13 @@ if args.nulow != DEFAULT_NULOW and args.nuhigh != DEFAULT_NUHIGH:
         mode = 4
 if not args.quiet:
     if mode == 1:
-        print("Setting N_chan = %0.1f MHz / %0.1f MHz -> %i (nearest power)"%(args.bw, args.chanbw, nchan))
+        print("Setting nchan = %0.1f MHz / %0.1f MHz -> %i (nearest power)"%(args.bw, args.chanbw, nchan))
     elif mode == 2:
-        print("Setting N_chan = %0.1f MHz / %0.1f MHz = %i"%(args.bw, args.chanbw, nchan))
+        print("Setting nchan = %0.1f MHz / %0.1f MHz = %i"%(args.bw, args.chanbw, nchan))
     elif mode == 3:
-        print("Setting N_chan -> %i (nearest power)"%(nchan))
+        print("Setting nchan -> %i (nearest power)"%(nchan))
     elif mode == 4:
-        print("Setting N_chan = (%0.1f MHz - %0.1f MHz) / %0.1f MHz = %if"%(args.nuhigh, args.nulow, args.chanbw, nchan))
+        print("Setting nchan = (%0.1f MHz - %0.1f MHz) / %0.1f MHz = %if"%(args.nuhigh, args.nulow, args.chanbw, nchan))
 
 DATA_size = nsubint*npol*nchan*nbin*DATA_byte
 DAT_SCL_size = nsubint*npol*nchan*DAT_byte

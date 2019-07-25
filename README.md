@@ -13,15 +13,18 @@ user@computer: python psrfits_volume.py
 
 user@computer: python psrfits_volume.py --tobs 3600 
 
-Setting N_subint = 3600.0 s / 1.0 s = 3600
+Setting nsubint = 3600.0 s / 1.0 s = 3600
 (nsubint, npol, nchan, nbin) = (3600, 4, 512, 2048)
 30.27 GB
 
 user@computer: python psrfits_volume.py --tobs 3600 --bw 800.0 --powertwo
 
-Setting N_subint = 3600.0 s / 1.0 s = 3600
-Setting N_chan = 800.0 MHz / 2.0 MHz -> 256 (nearest power)
+Setting nsubint = 3600.0 s / 1.0 s = 3600
+Setting nchan = 800.0 MHz / 2.0 MHz -> 256 (nearest power)
 (nsubint, npol, nchan, nbin) = (3600, 4, 256, 2048)
+15.13 GB
+
+user@computer: python psrfits_volume.py -q --tobs 3600 --bw 800.0 --powertwo
 15.13 GB
 ```
 
