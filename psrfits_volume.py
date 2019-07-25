@@ -111,9 +111,6 @@ elif total >= 1e6:
 elif total >= 1e3:
     print("%0.2f KB"%(total / 1e3))
 
-#def volume(nulow=700, nuhigh=2000, tsubint=1, Tobs=1800):
-#    Nsubint = Tobs/tsubint
-#    Npol = 2
-#    Nchan = 2**floor(log(nuhigh - nulow, 2)) #power of 2 just lower
-#    Nbin = 2048
+if not args.quiet: 
+    print("")
 
