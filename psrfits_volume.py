@@ -17,7 +17,7 @@ class CustomFormatter(argparse.ArgumentDefaultsHelpFormatter, argparse.RawDescri
 
 parser = argparse.ArgumentParser(
     formatter_class=CustomFormatter,
-    prog='PROG',
+    prog='python psrfits_volume.py',
     description='''Calculate the data volume of a PSRFITS file''')
 
 group0 = parser.add_argument_group('Printing options')
@@ -71,20 +71,26 @@ if args.tobs != DEFAULT_TOBS or args.tsubint != DEFAULT_TSUBINT:
 mode = 0
 if args.bw != DEFAULT_BW or args.chanbw != DEFAULT_CHANBW:
     nchan = floor(args.bw/args.chanbw)
-    mode = 1
+    if args.powertwo:
+        nchan = 2**floor(log(nchan, 2))
+        mode = 1
+    else:
+        mode = 2
 if args.nulow != DEFAULT_NULOW and args.nuhigh != DEFAULT_NUHIGH:
     if args.powertwo:
         nchan = 2**floor(log(args.nuhigh - args.nulow, 2))
-        mode = 2
+        mode = 3
     else:
         nchan = int((args.nuhigh - args.nulow) / args.chanbw)
-        mode = 3
+        mode = 4
 if not args.quiet:
     if mode == 1:
-        print("Setting N_chan = %0.1f MHz / %0.1f MHz = %if"%(args.bw, args.chanbw, nchan))
+        print("Setting N_chan = %0.1f MHz / %0.1f MHz -> %i (nearest power)"%(args.bw, args.chanbw, nchan))
     elif mode == 2:
-        print("Setting N_chan = %i (nearest power)"%(args.bw, args.chanbw, nchan))
+        print("Setting N_chan = %0.1f MHz / %0.1f MHz = %i"%(args.bw, args.chanbw, nchan))
     elif mode == 3:
+        print("Setting N_chan -> %i (nearest power)"%(nchan))
+    elif mode == 4:
         print("Setting N_chan = (%0.1f MHz - %0.1f MHz) / %0.1f MHz = %if"%(args.nuhigh, args.nulow, args.chanbw, nchan))
 
 DATA_size = nsubint*npol*nchan*nbin*DATA_byte
