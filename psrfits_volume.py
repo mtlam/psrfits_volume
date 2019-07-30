@@ -91,7 +91,7 @@ if not args.quiet:
     elif mode == 2:
         print("Setting nchan = %0.1f MHz / %0.1f MHz = %i"%(args.bw, args.chanbw, nchan))
     elif mode == 3:
-        print("Setting nchan -> %i (nearest power)"%(nchan))
+        print("Setting nchan -> %i (nearest power, dnu = %0.3f MHz)"%(nchan, (args.nuhigh - args.nulow)/nchan))
     elif mode == 4:
         print("Setting nchan = (%0.1f MHz - %0.1f MHz) / %0.1f MHz = %i"%(args.nuhigh, args.nulow, args.chanbw, nchan))
 
