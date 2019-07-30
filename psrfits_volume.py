@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 '''
 Michael T. Lam 2019
 
