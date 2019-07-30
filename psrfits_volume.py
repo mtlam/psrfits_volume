@@ -93,7 +93,7 @@ if not args.quiet:
     elif mode == 3:
         print("Setting nchan -> %i (nearest power)"%(nchan))
     elif mode == 4:
-        print("Setting nchan = (%0.1f MHz - %0.1f MHz) / %0.1f MHz = %if"%(args.nuhigh, args.nulow, args.chanbw, nchan))
+        print("Setting nchan = (%0.1f MHz - %0.1f MHz) / %0.1f MHz = %i"%(args.nuhigh, args.nulow, args.chanbw, nchan))
 
 DATA_size = nsubint*npol*nchan*nbin*DATA_byte
 DAT_SCL_size = nsubint*npol*nchan*DAT_byte
