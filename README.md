@@ -1,6 +1,6 @@
 ## psrfits_volume.py
 
-A small command-line script to calculate the data volume of a PSRFITS file.
+A small command-line script to estimate the data volume of a PSRFITS file.
 
 
 #### Example usage:
